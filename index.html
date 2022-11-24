@@ -20,8 +20,9 @@
 </script>
 
 <div class="titleBlock">
-  <h1>UNSW CODE2270 BIM PLAN</h1><br>
-    <h2>Daniel Yu</h2>
+  <h1>UNSW CODE2270 BIM MANAGEMENT PLAN</h1><br>
+    <h2>KIANG MING NG</h2><br>
+    <h3>Bed Villa</h3>
 </div>
 
 <div class="canvas">
@@ -40,8 +41,8 @@
         // Scene setup
         const scene = new THREE.Scene();
 
-        // const camera = new THREE.PerspectiveCamera( 60, width / height, 1, 10000 );
-        const camera = new THREE.OrthographicCamera( width / - 70, width / 70, height / 70, height / - 80, -200, 200 );
+        const camera = new THREE.PerspectiveCamera( 45, width / height, 1, 10000 );
+        // const camera = new THREE.OrthographicCamera( width / - 20, width / 20, height / 20, height / - 20, 10, 10000 );
 
         // Renderer setup and appending to 'frame'
         const renderer = new THREE.WebGLRenderer( { antialias: true } );
@@ -49,9 +50,16 @@
         renderer.setSize( width, height );
         container.appendChild( renderer.domElement )
 
+        const ambientLight = new THREE.AmbientLight( 0xffffff, 0.4 );
+        scene.add( ambientLight );
+
+        const dirLight = new THREE.DirectionalLight( 0xefefff, 1.5 );
+        dirLight.position.set( 10, 10, 10 );
+        scene.add( dirLight );
+
         // Geometry
         const loader = new GLTFLoader();
-        loader.load('model/scene.gltf', function (gltf) {
+        loader.load('model/bedvilla.gltf', function (gltf) {
             scene.add(gltf.scene);
         }, undefined, function ( error ) {
             console.error( error );
@@ -59,7 +67,7 @@
 
         //Scene
         scene.background = new THREE.Color(255, 255, 255)
-        camera.position.set( 1, 1, 3 );
+        camera.position.set( -25, -10, 20 );
 
         //Control
         const controls = new OrbitControls(camera, renderer.domElement);
@@ -72,6 +80,83 @@
         }
         animate();
     </script>
+</div>
+
+<div class="titleBlock">
+    <h3>Sequencing</h3><br>
+    <img src="image/sequencing.jpg" 
+    width="1230"/>
+</div>
+
+<div class="titleBlock">
+    <h3>Structural Phase</h3><br>
+    <img src="image/structural_phase.jpg" 
+    width="1230" />
+</div>
+
+<div class="titleBlock">
+    <h3>Internal Phase</h3><br>
+    <img src="image/internal_phase.jpg" 
+    width="1230" />
+</div>
+
+<div class="titleBlock">
+    <h3>Framing Phase</h3><br>
+    <img src="image/framing_phase.jpg" 
+    width="1230" />
+</div>
+
+<div class="titleBlock">
+    <h3>Roofing Phase</h3><br>
+    <img src="image/roofing_phase.jpg" 
+    width="1230" />
+</div>
+
+<div class="titleBlock">
+    <h3>Glazing Phase</h3><br>
+    <img src="image/glazing_phase.jpg" 
+    width="1230" />
+</div>
+
+<div class="titleBlock">
+    <h3>Element Classification, Quantity Take-off and Costs</h3><br>
+    <img src="image/element_classification.jpg" />
+    <img src="image/quantity_take-off_and_costs_1.jpg" 
+    width="1230"/>
+    <img src="image/quantity_take-off_and_costs_2.jpg" 
+    width="1230"/>
+</div>
+
+<div class="titleBlock">
+    <h3>SunlightHours Analysis in January to March in Sydney, Australia</h3><br>
+    <img src="image/sunlighthours_analysis_in_january_to_march.jpg" 
+    width="1230"/>
+</div>
+
+<div class="titleBlock">
+    <h3>SunlightHours Analysis in April to June in Sydney, Australia</h3><br>
+    <img src="image/sunlighthours_analysis_in_april_to_june.jpg" 
+    width="1230"/>
+</div>
+
+<div class="titleBlock">
+    <h3>SunlightHours Analysis in July to September in Sydney, Australia</h3><br>
+    <img src="image/sunlighthours_analysis_in_july_to_september.jpg" 
+    width="1230"/>
+</div>
+
+<div class="titleBlock">
+    <h3>SunlightHours Analysis in October to December in Sydney, Australia</h3><br>
+    <img src="image/sunlighthours_analysis_in_october_to_december.jpg" 
+    width="1230"/>
+</div>
+
+<div class="titleBlock">
+    <h3>AC Energy Per Year: 95.280712</h3><br>
+    <h3>Average Daily AC Energy Per Year: 0.261043</h3><br>
+    <h3>Based on the SunlightHours Analysis, the solar panels can be installed on the top of the roofs as the top of the roofs are covered by
+        sunlight in</h3>
+    <h3> different seasons.</h3>
 </div>
 
 </body>
